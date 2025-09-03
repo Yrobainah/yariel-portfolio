@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Navbar } from '../../core/components/navbar/navbar';
 
 @Component({
   selector: 'app-onepage',
-  imports: [RouterLink],
+  imports: [Navbar],
   templateUrl: './onepage.html',
   styleUrl: './onepage.scss',
 })
