@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Navbar } from './core/components/navbar/navbar';
+import { Onepage } from './features/onepage/onepage';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, Navbar],
-  template: `<div class="min-h-dvh flex flex-col">
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-  </div>`,
+  imports: [RouterModule, Onepage],
+  template: `<app-onepage></app-onepage>`,
 })
 export class AppComponent {}
