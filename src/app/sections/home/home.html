@@ -1,1 +1,73 @@
-<p>home works!</p>
+<section
+  id="home"
+  class="scroll-mt-16 lg:scroll-mt-20 min-h-screen px-4 bg-slate-800/90"
+>
+  <div
+    class="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.2fr] gap-12 items-center min-h-screen"
+  >
+    <!-- Texto -->
+    <div class="text-slate-200 self-center">
+      <h1
+        class="text-4xl md:text-6xl font-extrabold leading-tight mb-5 text-center md:text-left"
+      >
+        Hola, soy <span class="text-blue-500">Yariel</span>
+      </h1>
+
+      <p
+        class="text-lg text-slate-300 mb-6 max-w-2xl mx-auto md:mx-0 text-center md:text-left"
+      >
+        Desarrollador <strong>backend</strong> enfocado en construir sistemas
+        <strong>robustos</strong> y <strong>escalables</strong> con
+        <strong>Java</strong>, <strong>Spring Boot</strong> y
+        <strong>Python</strong>. También integro interfaces funcionales con
+        <strong>Angular</strong>, <strong>Vue 3</strong> y
+        <strong>Tailwind CSS</strong>.
+      </p>
+
+      <!-- Chips -->
+      <div class="flex flex-wrap gap-2.5 mb-8 justify-center md:justify-start">
+        @for (s of skills; track $index) {
+        <span
+          class="px-3 py-1.5 rounded-full bg-slate-800/80 text-slate-200 text-sm ring-1 ring-slate-700 shadow-sm"
+        >
+          {{ s }}
+        </span>
+        }
+      </div>
+
+      <!-- Botones -->
+      <div class="flex gap-3 justify-center md:justify-start">
+        <a
+          href="#projects"
+          class="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow transition"
+        >
+          Ver proyectos
+        </a>
+
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center h-11 px-5 rounded-lg border border-slate-600 text-slate-200 hover:bg-slate-800/60 transition"
+        >
+          Contáctame
+        </a>
+      </div>
+    </div>
+
+    <!-- Imagen -->
+    <div class="flex justify-center md:justify-end self-center">
+      <div class="relative">
+        <!-- Glow dinámico detrás -->
+        <div
+          class="absolute -inset-10 rounded-full bg-gradient-to-tr from-purple-700/40 to-blue-600/30 blur-3xl opacity-70 animate-pulse"
+        ></div>
+
+        <!-- Ilustración limpia -->
+        <img
+          src="assets/img1.png"
+          alt="Ilustración desarrollador backend"
+          class="relative z-10 h-80 md:h-96 w-auto object-contain drop-shadow-2xl animate-float"
+        />
+      </div>
+    </div>
+  </div>
+</section>
