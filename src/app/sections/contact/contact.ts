@@ -31,6 +31,7 @@ export class ContactComponent {
           from_name: this.name,
           from_email: this.email,
           message: this.message,
+          year: new Date().getFullYear(),
         },
         { publicKey: environment.emailjs.publicKey }
       );
