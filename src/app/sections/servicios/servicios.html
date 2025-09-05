@@ -1,0 +1,66 @@
+<section
+  id="services"
+  class="scroll-mt-16 lg:scroll-mt-20 py-12 md:py-16 lg:py-20 px-4 bg-slate-800/95"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Título -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-100 mb-3">
+        Servicios
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">
+        Te ayudo a pasar de la idea al producto: backend sólido, frontend
+        moderno y un flujo de entrega simple para iterar rápido.
+      </p>
+    </div>
+
+    <!-- Grid de tarjetas -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      @for (s of services; track $index) {
+      <article
+        class="group relative rounded-2xl border border-slate-700/70 bg-slate-900/60 p-6 shadow ring-1 ring-transparent transition hover:border-slate-600 hover:ring-slate-600/30"
+        [class.bg-slate-900]="s.highlight"
+      >
+        <!-- Icono -->
+        <div class="mb-4">
+          <span
+            class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-800 text-2xl ring-1 ring-slate-700"
+          >
+            {{ s.icon }}
+          </span>
+        </div>
+
+        <!-- Título y descripción -->
+        <h3 class="text-xl font-semibold text-white mb-2">{{ s.title }}</h3>
+        <p class="text-slate-300 mb-4">{{ s.description }}</p>
+
+        <!-- Bullets -->
+        <ul class="space-y-2 mb-6">
+          <li
+            *ngFor="let f of s.features"
+            class="flex items-start gap-3 text-slate-300"
+          >
+            <span
+              class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-500/90"
+            ></span>
+            <span>{{ f }}</span>
+          </li>
+        </ul>
+
+        <!-- CTA -->
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center h-10 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition"
+        >
+          Consultar
+        </a>
+
+        <!-- Glow sutil al hover -->
+        <div
+          class="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 blur-2xl transition group-hover:opacity-20 radial-gradient-bg"
+        ></div>
+      </article>
+      }
+    </div>
+  </div>
+</section>

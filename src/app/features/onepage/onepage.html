@@ -1,15 +1,9 @@
-<div class="container-page py-2 text-sm">
-  <a [routerLink]="['/']" fragment="home" class="mr-3 underline">Home</a>
-  <a [routerLink]="['/']" fragment="projects" class="mr-3 underline"
-    >Projects</a
-  >
-  <a [routerLink]="['/']" fragment="about" class="mr-3 underline">About</a>
-  <a [routerLink]="['/']" fragment="contact" class="mr-3 underline">Contact</a>
-</div>
+<app-navbar></app-navbar>
 
 <main>
-  <section id="home" class="h-dvh snap-start scroll-mt-20">...</section>
-  <section id="projects" class="h-dvh snap-start scroll-mt-20">...</section>
-  <section id="about" class="h-dvh snap-start scroll-mt-20">...</section>
-  <section id="contact" class="h-dvh snap-start scroll-mt-20">...</section>
+  <app-home></app-home>
+  <app-about></app-about>
+  <app-projects></app-projects>
+  <app-servicios></app-servicios>
+  <app-contact></app-contact>
 </main>
