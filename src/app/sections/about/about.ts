@@ -18,6 +18,6 @@ export class About {
   // Stats opcionales que se muestran como chips
   stats = [
     { label: 'Años de experiencia', value: '3+' },
-    { label: 'Proyectos', value: '15+' },
+    { label: 'Proyectos', value: '10+' },
   ];
 }
