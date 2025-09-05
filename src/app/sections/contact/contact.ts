@@ -1,29 +1,21 @@
 import { Component } from '@angular/core';
-import emailjs from '@emailjs/browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environments';
 
 @Component({
   selector: 'app-contact',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss',
 })
-export class Contact {
-  name: string = '';
-  email: string = '';
-  message: string = '';
-
-  private readonly serviceId = 'service_t0nz37m';
-  private readonly templateId = 'template_g2yf3e8';
-  private readonly publicKey = 'zVZTyz2-P2bl1Pkr-';
-
+export class ContactComponent {
+  name = '';
+  email = '';
+  message = '';
   submitting = false;
   sentOk: boolean | null = null;
-
-  constructor() {
-    emailjs.init({ publicKey: this.publicKey });
-  }
 
   async onSubmit(form: NgForm) {
     if (form.invalid || this.submitting) return;
@@ -32,16 +24,21 @@ export class Contact {
     this.sentOk = null;
 
     try {
-      await emailjs.send(this.serviceId, this.templateId, {
-        from_name: this.name,
-        from_email: this.email,
-        message: this.message,
-      });
+      await emailjs.send(
+        environment.emailjs.serviceId,
+        environment.emailjs.templateId,
+        {
+          from_name: this.name,
+          from_email: this.email,
+          message: this.message,
+        },
+        { publicKey: environment.emailjs.publicKey }
+      );
 
       this.sentOk = true;
-      form.resetForm(); // limpia el formulario
+      form.resetForm();
     } catch (err) {
-      console.error('EmailJS error:', err);
+      console.error('Error EmailJS:', err);
       this.sentOk = false;
     } finally {
       this.submitting = false;
