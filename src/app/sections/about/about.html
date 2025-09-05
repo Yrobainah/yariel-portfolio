@@ -1,1 +1,84 @@
-<p>about works!</p>
+<section
+  id="about"
+  class="scroll-mt-16 lg:scroll-mt-20 py-12 md:py-16 lg:py-20 px-4"
+>
+  <div
+    class="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center"
+  >
+    <!-- Columna izquierda: contenido -->
+    <div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-slate-100 mb-4">
+        Sobre mí
+      </h2>
+
+      <p class="text-slate-300 leading-relaxed mb-5 max-w-2xl">
+        Soy <strong>Yariel</strong>, desarrollador
+        <strong>backend</strong> enfocado en construir sistemas
+        <strong>robustos</strong>, <strong>escalables</strong> y bien probados
+        con <strong>Java</strong> y <strong>Spring Boot</strong>. Me gusta
+        diseñar APIs limpias, documentadas y con seguridad (JWT/roles), además
+        de integrar interfaces con <strong>Angular</strong> y
+        <strong>Vue</strong> usando <strong>Tailwind CSS</strong>.
+      </p>
+
+      <!-- Bullet points / highlights -->
+      @for (h of highlights; track $index) {
+      <ul class="space-y-2 mb-6">
+        <li class="flex items-start gap-3 text-slate-300">
+          <span
+            class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-blue-500/90"
+          ></span>
+          <span>{{ h }}</span>
+        </li>
+      </ul>
+      }
+
+      <!-- Stats como chips -->
+      <div class="flex flex-wrap gap-3 mb-8">
+        @for (s of stats; track $index) {
+        <div
+          class="px-4 py-2 rounded-xl bg-slate-800/70 ring-1 ring-slate-700 text-slate-200"
+        >
+          <span class="text-xl font-bold mr-1">{{ s.value }}</span>
+          <span class="text-sm opacity-80">{{ s.label }}</span>
+        </div>
+        }
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="assets/cv/yariel-cv.pdf"
+          download
+          class="inline-flex items-center justify-center h-11 px-5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow transition"
+        >
+          Descargar CV
+        </a>
+
+        <a
+          href="#contact"
+          class="inline-flex items-center justify-center h-11 px-5 rounded-lg border border-slate-600 text-slate-200 hover:bg-slate-800/60 transition"
+        >
+          Hablemos
+        </a>
+      </div>
+    </div>
+
+    <!-- Columna derecha: foto con glow (usa tu imagen real) -->
+    <div class="flex justify-center md:justify-end">
+      <div class="relative">
+        <!-- Glow sutil detrás de la foto -->
+        <div
+          class="absolute -inset-8 md:-inset-10 rounded-full bg-gradient-to-tr from-blue-600/30 via-purple-600/25 to-fuchsia-500/25 blur-3xl"
+        ></div>
+
+        <!-- Foto personal -->
+        <img
+          src="assets/about/profile.jpg"
+          alt="Foto de perfil"
+          class="relative z-10 h-56 w-56 md:h-64 md:w-64 rounded-full object-cover ring-4 ring-slate-700 shadow-2xl"
+        />
+      </div>
+    </div>
+  </div>
+</section>
