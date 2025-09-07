@@ -1,68 +1,14 @@
 <header
-  class="fixed top-0 left-0 right-0 z-50 h-16 bg-slate-900/95 backdrop-blur border-b border-slate-800 shadow-sm pt-[env(safe-area-inset-top)]"
+  class="fixed inset-x-0 top-0 z-50 h-14 md:h-16 bg-slate-900/95 backdrop-blur border-b border-slate-800"
 >
-  <nav class="max-w-6xl mx-auto px-4 h-full">
-    <div class="h-full flex items-center justify-between">
-      <!-- Logo PNG con marco -->
-      <a href="#home" class="inline-flex items-center">
-        <span
-          class="inline-flex items-center justify-center rounded-md ring-3 ring-slate-400/60 p-2"
-        >
-          <img src="assets/logo-yrh.png" alt="Logo" class="h-8 w-auto block" />
-        </span>
-      </a>
+  <nav class="max-w-6xl mx-auto h-full px-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#home" aria-label="Ir al inicio" class="inline-flex items-center">
+      <img src="assets/logo-yrh.png" alt="Logo" class="h-7 md:h-8 w-auto" />
+    </a>
 
-      <div class="flex items-center gap-6">
-        <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <li>
-            <a
-              href="#about"
-              class="text-slate-200/90 hover:text-white transition"
-              >Sobre mí</a
-            >
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="text-slate-200/90 hover:text-white transition"
-              >Proyectos</a
-            >
-          </li>
-          <li>
-            <a
-              href="#services"
-              class="text-slate-200/90 hover:text-white transition"
-              >Servicios</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="text-slate-200/90 hover:text-white transition"
-              >Contacto</a
-            >
-          </li>
-        </ul>
-
-        <!-- Toggle tema: ☀️/🌙 -->
-        <button
-          (click)="toggleDark()"
-          class="inline-flex items-center gap-2 text-xs md:text-sm px-3 py-1.5 rounded-full bg-slate-800 text-slate-200 ring-1 ring-slate-700 hover:bg-slate-700 transition cursor-pointer"
-          aria-label="Cambiar tema"
-        >
-          @if (isDark) { <span class="text-amber-300">🌙</span> } @else {
-          <span class="text-yellow-400">☀️</span> }
-          <span class="hidden sm:inline"
-            >{{ isDark ? 'Oscuro' : 'Claro' }}</span
-          >
-        </button>
-      </div>
-    </div>
-
-    <!-- Nav móvil simple -->
-    <ul
-      class="md:hidden pb-3 flex items-center justify-center gap-6 text-sm font-medium"
-    >
+    <!-- Navegación desktop -->
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium">
       <li>
         <a href="#about" class="text-slate-200/90 hover:text-white transition"
           >Sobre mí</a
@@ -87,6 +33,112 @@
           >Contacto</a
         >
       </li>
+
+      <!-- Toggle dark en desktop: icono + texto -->
+      <li>
+        <button
+          (click)="toggleDark()"
+          class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 text-slate-200 ring-1 ring-slate-700 hover:bg-slate-700 transition"
+          aria-label="Cambiar tema"
+        >
+          <span>{{ isDark ? '🌙' : '☀️' }}</span>
+          <span> {{ isDark ? 'Oscuro' : 'Claro' }}</span>
+        </button>
+      </li>
     </ul>
+
+    <!-- Zona derecha en móvil: icono dark + hamburguesa -->
+    <div class="md:hidden flex items-center gap-2">
+      <!-- Toggle dark en móvil: SOLO icono (no texto) -->
+      <button
+        (click)="toggleDark()"
+        class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        aria-label="Cambiar tema"
+      >
+        <span class="text-lg">{{ isDark ? '🌙' : '☀️' }}</span>
+      </button>
+
+      <!-- Botón hamburguesa (visible en móvil) -->
+      <button
+        class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
+      >
+        @if (!isMenuOpen) {
+        <svg
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M4 7h16M4 12h16M4 17h16"
+          ></path>
+        </svg>
+        } @if (isMenuOpen) {
+        <svg
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M6 6l12 12M18 6l-12 12"
+          ></path>
+        </svg>
+        }
+      </button>
+    </div>
   </nav>
 </header>
+
+<!-- Overlay -->
+@if (isMenuOpen) {
+<div
+  class="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm md:hidden"
+  (click)="closeMenu()"
+></div>
+}
+
+<!-- Panel lateral móvil -->
+<aside
+  id="mobile-menu"
+  class="fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-xs bg-slate-900 border-l border-slate-800 pt-16 px-5 md:hidden transition-transform duration-300 ease-out"
+  [style.transform]="isMenuOpen ? 'translateX(0)' : 'translateX(100%)'"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
+>
+  <nav class="space-y-1">
+    <a
+      href="#about"
+      (click)="closeMenu()"
+      class="block px-3 py-3 rounded-lg text-slate-200 hover:bg-slate-800/70"
+      >Sobre mí</a
+    >
+    <a
+      href="#projects"
+      (click)="closeMenu()"
+      class="block px-3 py-3 rounded-lg text-slate-200 hover:bg-slate-800/70"
+      >Proyectos</a
+    >
+    <a
+      href="#services"
+      (click)="closeMenu()"
+      class="block px-3 py-3 rounded-lg text-slate-200 hover:bg-slate-800/70"
+      >Servicios</a
+    >
+    <a
+      href="#contact"
+      (click)="closeMenu()"
+      class="block px-3 py-3 rounded-lg text-slate-200 hover:bg-slate-800/70"
+      >Contacto</a
+    >
+  </nav>
+</aside>
