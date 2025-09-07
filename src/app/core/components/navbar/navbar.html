@@ -1,20 +1,14 @@
-<!-- Header fijo -->
 <header
   class="fixed inset-x-0 top-0 z-50 h-14 md:h-16 bg-slate-900/95 backdrop-blur border-b border-slate-800"
 >
   <nav class="max-w-6xl mx-auto h-full px-4 flex items-center justify-between">
     <!-- Logo -->
-    <a
-      href="#home"
-      (click)="closeMenu()"
-      class="inline-flex items-center"
-      aria-label="Ir a inicio"
-    >
+    <a href="#home" aria-label="Ir al inicio" class="inline-flex items-center">
       <img src="assets/logo-yrh.png" alt="Logo" class="h-7 md:h-8 w-auto" />
     </a>
 
-    <!-- Desktop nav -->
-    <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+    <!-- Navegación desktop -->
+    <ul class="hidden md:flex items-center gap-7 text-sm font-medium">
       <li>
         <a href="#about" class="text-slate-200/90 hover:text-white transition"
           >Sobre mí</a
@@ -39,60 +33,72 @@
           >Contacto</a
         >
       </li>
+
+      <!-- Toggle dark en desktop: icono + texto -->
       <li>
         <button
           (click)="toggleDark()"
-          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 text-slate-200 ring-1 ring-slate-700 hover:bg-slate-700 transition"
+          class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 text-slate-200 ring-1 ring-slate-700 hover:bg-slate-700 transition"
           aria-label="Cambiar tema"
         >
           <span>{{ isDark ? '🌙' : '☀️' }}</span>
-          <span class="hidden sm:inline"
-            >{{ isDark ? 'Oscuro' : 'Claro' }}</span
-          >
+          <span> {{ isDark ? 'Oscuro' : 'Claro' }}</span>
         </button>
       </li>
     </ul>
 
-    <!-- Botón hamburguesa (móvil) -->
-    <button
-      class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="isMenuOpen"
-      aria-controls="mobile-menu"
-      aria-label="Abrir menú"
-    >
-      @if (isMenuOpen) {
-      <svg
-        class="h-6 w-6"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
+    <!-- Zona derecha en móvil: icono dark + hamburguesa -->
+    <div class="md:hidden flex items-center gap-2">
+      <!-- Toggle dark en móvil: SOLO icono (no texto) -->
+      <button
+        (click)="toggleDark()"
+        class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        aria-label="Cambiar tema"
       >
-        <path
-          stroke-linecap="round"
-          stroke-width="2"
-          d="M4 7h16M4 12h16M4 17h16"
-        ></path>
-      </svg>
-      } @if (isMenuOpen) {
-      <svg
-        class="h-6 w-6"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
+        <span class="text-lg">{{ isDark ? '🌙' : '☀️' }}</span>
+      </button>
+
+      <!-- Botón hamburguesa (visible en móvil) -->
+      <button
+        class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-controls="mobile-menu"
+        aria-label="Abrir menú"
       >
-        <path
-          stroke-linecap="round"
-          stroke-width="2"
-          d="M6 6l12 12M18 6l-12 12"
-        ></path>
-      </svg>
-      }
-    </button>
+        @if (!isMenuOpen) {
+        <svg
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M4 7h16M4 12h16M4 17h16"
+          ></path>
+        </svg>
+        } @if (isMenuOpen) {
+        <svg
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M6 6l12 12M18 6l-12 12"
+          ></path>
+        </svg>
+        }
+      </button>
+    </div>
   </nav>
 </header>
 
-<!-- Overlay (fuera del header para evitar stacking raros) -->
+<!-- Overlay -->
 @if (isMenuOpen) {
 <div
   class="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm md:hidden"
@@ -100,10 +106,10 @@
 ></div>
 }
 
-<!-- Panel móvil -->
+<!-- Panel lateral móvil -->
 <aside
   id="mobile-menu"
-  class="fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-xs bg-slate-900 border-l border-slate-800 pt-16 md:pt-20 px-5 md:hidden transition-transform duration-300 ease-out"
+  class="fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-xs bg-slate-900 border-l border-slate-800 pt-16 px-5 md:hidden transition-transform duration-300 ease-out"
   [style.transform]="isMenuOpen ? 'translateX(0)' : 'translateX(100%)'"
   role="dialog"
   aria-modal="true"
@@ -134,15 +140,5 @@
       class="block px-3 py-3 rounded-lg text-slate-200 hover:bg-slate-800/70"
       >Contacto</a
     >
-
-    <div class="mt-3 border-t border-slate-800 pt-3">
-      <button
-        (click)="toggleDark()"
-        class="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-800 text-slate-200 ring-1 ring-slate-700 hover:bg-slate-700 transition"
-      >
-        <span>{{ isDark ? '🌙' : '☀️' }}</span>
-        <span>{{ isDark ? 'Modo oscuro' : 'Modo claro' }}</span>
-      </button>
-    </div>
   </nav>
 </aside>
