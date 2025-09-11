@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../environments/environments';
+import { ThemeService } from '../../core/services/theme/theme';
 
 @Component({
   selector: 'app-contact',
@@ -16,6 +17,8 @@ export class ContactComponent {
   message = '';
   submitting = false;
   sentOk: boolean | null = null;
+
+  constructor(public themeService: ThemeService) {}
 
   async onSubmit(form: NgForm) {
     if (form.invalid || this.submitting) return;
