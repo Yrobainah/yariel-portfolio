@@ -1,21 +1,63 @@
 @import "tailwindcss";
-html{
+html {
   scroll-behavior: smooth;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
+:root {
+  --bg: #f1f5f9; /* slate-100 */
+  --fg: #0f172a; /* slate-900 */
+  --muted: #475569; /* slate-600 */
+  --surface: #ffffff;
+  --border: #cbd5e1; /* slate-300 */
+  --nav-bg: rgba(241, 245, 249, 0.9);
+  --nav-border: #cbd5e1;
+  --link: #0f172a; /* slate-900 */
+  --link-hover: #2563eb; /* blue-600 */
+}
+
+/* Oscuro (cuando <html> tiene .dark) */
+html.dark {
+  --bg: #0b1220;
+  --fg: #e5e7eb; /* slate-200 */
+  --muted: #94a3b8; /* slate-400 */
+  --surface: #0f172a;
+  --border: #1f2a44;
+  --nav-bg: rgba(15, 23, 42, 0.9);
+  --nav-border: #1f2a44;
+  --link: #e5e7eb;
+  --link-hover: #f472b6; /* fuchsia-400 */
+}
+
 @keyframes wave {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .animate-wave {
