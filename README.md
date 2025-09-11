@@ -31,5 +31,5 @@ El diseño es **responsive**, con soporte para **modo claro/oscuro** y preparado
 Clona el repositorio:
 
 ```bash
-git clone https://github.com/TU_USUARIO/yariel-portfolio.git
+git clone https://github.com/Yrobainah/yariel-portfolio.git
 cd yariel-portfolio
