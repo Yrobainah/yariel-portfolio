@@ -1,33 +1,34 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { DOCUMENT } from '@angular/common';
+import { ThemeService } from '../../services/theme/theme';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './navbar.html',
 })
-export class Navbar implements OnInit {
-  isDark = true;
+export class Navbar {
+  isMenuOpen = false;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private doc: Document,
+    public theme: ThemeService
+  ) {}
 
-  ngOnInit(): void {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light') this.disableDark();
-    else this.enableDark(); // mismo look de la captura
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.doc.body.classList.toggle('overflow-hidden', this.isMenuOpen); // lock scroll
+  }
+  closeMenu() {
+    this.isMenuOpen = false;
+    this.doc.body.classList.remove('overflow-hidden');
   }
 
-  enableDark() {
-    this.isDark = true;
-    this.document.documentElement.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-  }
-  disableDark() {
-    this.isDark = false;
-    this.document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
-  }
-  toggleDark() {
-    this.isDark ? this.disableDark() : this.enableDark();
+  // cerrar con ESC
+  @HostListener('document:keydown', ['$event'])
+  onKey(e: KeyboardEvent) {
+    if (e.key === 'Escape') this.closeMenu();
   }
 }
