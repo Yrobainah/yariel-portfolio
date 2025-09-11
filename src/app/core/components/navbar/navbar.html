@@ -1,5 +1,5 @@
 <header
-  class="fixed inset-x-0 top-0 z-50 h-14 md:h-16 backdrop-blur border-b border-slate-800 overflow-hidden"
+  class="fixed inset-x-0 top-0 z-50 h-14 md:h-16 backdrop-blur border-b border-slate-800 overflow-hidden bg-[var(--nav-bg)] text-[var(--fg)]"
 >
   <nav class="max-w-6xl mx-auto h-full px-4 flex items-center justify-between">
     <!-- Logo -->
@@ -25,12 +25,12 @@
       <!-- Toggle dark en desktop: icono + texto -->
       <li>
         <button
-          (click)="toggleDark()"
+          (click)="theme.toggle()"
           class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800 text-slate-200 ring-1 ring-slate-700 hover:bg-slate-700 transition"
           aria-label="Cambiar tema"
         >
-          <span>{{ isDark ? '🌙' : '☀️' }}</span>
-          <span> {{ isDark ? 'Oscuro' : 'Claro' }}</span>
+          <span>{{ theme.isDark ? '🌙' : '☀️' }}</span>
+          <span> {{ theme.isDark ? 'Oscuro' : 'Claro' }}</span>
         </button>
       </li>
     </ul>
@@ -39,11 +39,11 @@
     <div class="md:hidden flex items-center gap-2">
       <!-- Toggle dark en móvil: SOLO icono (no texto) -->
       <button
-        (click)="toggleDark()"
+        (click)="theme.toggle()"
         class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
         aria-label="Cambiar tema"
       >
-        <span class="text-lg">{{ isDark ? '🌙' : '☀️' }}</span>
+        <span class="text-lg">{{ theme.isDark ? '🌙' : '☀️' }}</span>
       </button>
 
       <!-- Botón hamburguesa (visible en móvil) -->
