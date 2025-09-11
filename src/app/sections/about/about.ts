@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../core/services/theme/theme';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './about.scss',
 })
 export class About {
+  constructor(public theme: ThemeService) {}
+
+  // Habilidades o tecnologías clave
   highlights = [
     'Backend Development con Java + Spring Boot',
     'API REST seguras y escalables (JWT, OAuth2)',

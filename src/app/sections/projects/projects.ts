@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../core/services/theme/theme';
 
 @Component({
   selector: 'app-projects',
@@ -8,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './projects.scss',
 })
 export class Projects {
+  constructor(public themeService: ThemeService) {}
   projects: any[] = [
     {
       title: 'Portfolio Angular',

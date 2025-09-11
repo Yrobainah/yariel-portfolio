@@ -1,6 +1,7 @@
 import { Component, Inject, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DOCUMENT } from '@angular/common';
+import { ThemeService } from '../../services/theme/theme';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +11,11 @@ import { DOCUMENT } from '@angular/common';
 })
 export class Navbar {
   isMenuOpen = false;
-  isDark = true;
 
-  constructor(@Inject(DOCUMENT) private doc: Document) {
-    // tema por defecto oscuro
-    this.doc.documentElement.classList.add('dark');
-  }
+  constructor(
+    @Inject(DOCUMENT) private doc: Document,
+    public theme: ThemeService
+  ) {}
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -24,11 +24,6 @@ export class Navbar {
   closeMenu() {
     this.isMenuOpen = false;
     this.doc.body.classList.remove('overflow-hidden');
-  }
-
-  toggleDark() {
-    this.isDark = !this.isDark;
-    this.doc.documentElement.classList.toggle('dark', this.isDark);
   }
 
   // cerrar con ESC

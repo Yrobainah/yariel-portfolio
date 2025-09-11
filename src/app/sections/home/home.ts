@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../core/services/theme/theme';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.scss',
 })
 export class Home {
+  constructor(public theme: ThemeService) {}
   skills = [
     'Java',
     'Spring Boot',

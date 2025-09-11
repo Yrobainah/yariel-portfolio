@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../core/services/theme/theme';
 
 interface Servicio {
   title: string;
@@ -16,6 +17,7 @@ interface Servicio {
   styleUrl: './servicios.scss',
 })
 export class Servicios {
+  constructor(public themeService: ThemeService) {}
   services: Servicio[] = [
     {
       title: 'APIs & Backend',
