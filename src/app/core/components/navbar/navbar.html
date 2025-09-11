@@ -7,7 +7,7 @@
       <img
         src="assets/logo-yrh.png"
         alt="Logo"
-        class="md:h-12 object-contain"
+        class="h-10 md:h-12 w-auto object-contain"
       />
     </a>
 
@@ -68,7 +68,7 @@
 
       <!-- Botón hamburguesa (visible en móvil) -->
       <button
-        class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-slate-200 hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        class="inline-flex items-center justify-center h-10 w-10 rounded-lg text-[var(--muted)] hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
         (click)="toggleMenu()"
         [attr.aria-expanded]="isMenuOpen"
         aria-controls="mobile-menu"
