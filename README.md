@@ -1,59 +1,35 @@
-# YarielPortfolio
+# 🌐 Yariel Robaina – Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+Este es mi portfolio personal desarrollado con **Angular 20** y **TailwindCSS 4**, donde presento mis proyectos, servicios y formas de contacto.  
+El diseño es **responsive**, con soporte para **modo claro/oscuro** y preparado para deploy en **GitHub Pages**.
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Características
 
-```bash
-ng serve
-```
+- 🎨 **Diseño moderno** con TailwindCSS  
+- 🌓 **Modo oscuro/claro** con persistencia local  
+- 📱 **100% Responsive** (mobile-first)  
+- 📂 **Secciones**: Home, About, Projects, Services, Contact, Footer  
+- ⚡ **Animaciones suaves** (scroll, hover y transiciones)  
+- 📬 **Formulario de contacto funcional** (envío de emails con EmailJS / servicio configurado)  
+- 🚀 **Despliegue automático en GitHub Pages**  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🛠️ Tecnologías utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- [Angular 20](https://angular.dev)  
+- [TailwindCSS 4](https://tailwindcss.com)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [EmailJS](https://www.emailjs.com/) *(para contacto por correo)*  
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📦 Instalación y uso
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Clona el repositorio:
 
 ```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone https://github.com/TU_USUARIO/yariel-portfolio.git
+cd yariel-portfolio
