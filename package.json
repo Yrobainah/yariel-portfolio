@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "ci": "npm ci && npm run build",
+    "deploy:local": "npm run build -- --base-href /yariel-portfolio/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

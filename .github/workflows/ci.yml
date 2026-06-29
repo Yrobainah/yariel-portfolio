@@ -2,26 +2,55 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches-ignore:
+      - gh-pages
   pull_request:
-    branches: [master]
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
-        run: npm run build -- --base-href /yariel-portfolio/
+      - name: Build application
+        run: npm run deploy:local
+
+      - name: Upload deployment artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: dist/yariel-portfolio/browser
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    name: Deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: build
+    permissions:
+      contents: write
+    uses: ./.github/workflows/deploy.yml
