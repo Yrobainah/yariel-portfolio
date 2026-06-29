@@ -11,17 +11,10 @@ import { ThemeService } from '../../core/services/theme/theme';
 export class About {
   constructor(public theme: ThemeService) {}
 
-  // Habilidades o tecnologías clave
-  highlights = [
-    'Backend Development con Java + Spring Boot',
-    'API REST seguras y escalables (JWT, OAuth2)',
-    'Integración Frontend-Backend (Angular, Vue 3)',
-    'CI/CD y contenedores (Docker)',
-  ];
-
-  // Stats opcionales que se muestran como chips
   stats = [
-    { label: 'Años de experiencia', value: '3+' },
-    { label: 'Proyectos', value: '10+' },
+    'Ingeniería Informática',
+    'Java & Spring Boot',
+    'Proyectos Full Stack',
+    'A Coruña · España',
   ];
 }

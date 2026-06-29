@@ -3,58 +3,95 @@
   class="pt-16 scroll-mt-16 lg:scroll-mt-10 md:py-40 lg:py-16 px-4 bg-[var(--section)]"
 >
   <div
-    class="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-5 items-center"
+    class="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center"
   >
-    <!-- Columna izquierda: contenido -->
     <div>
-      <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--muted)] mb-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--muted)] mb-6">
         Sobre mí
       </h2>
 
-      <p class="text-[var(--muted)] leading-relaxed mb-8 max-w-2xl">
-        Me dedico al desarrollo de <strong>software</strong>, con formación en
-        <strong>Ingeniería Informática</strong> y pasión por crear
-        <strong>soluciones sólidas, escalables y bien estructuradas</strong>. A
-        lo largo de mi experiencia he trabajado con <strong>Java</strong>,
-        <strong>Spring Boot</strong> y bases de datos relacionales como
-        <strong>MySQL</strong> y <strong>PostgreSQL</strong>, construyendo
-        sistemas que no solo funcionan sino que aportan valor real a las
-        personas y negocios. Me considero una persona
-        <strong>curiosa y en constante aprendizaje</strong>, disfruto
-        enfrentarme a retos técnicos como optimizar el rendimiento de una API,
-        diseñar bases de datos eficientes o integrar un frontend moderno con
-        <strong>Angular</strong> o <strong>Vue 3</strong> usando
-        <strong>Tailwind CSS</strong>. Mantengo un fuerte compromiso con las
-        buenas prácticas de <strong>limpieza de código</strong>, la aplicación
-        de patrones de diseño cuando corresponde y la documentación clara de
-        cada proyecto. Más allá del código, valoro el
-        <strong>trabajo en equipo</strong> y la
-        <strong>comunicación efectiva</strong>, convencido de que un buen
-        desarrollador no solo resuelve problemas técnicos, sino que también sabe
-        escuchar, colaborar y aportar ideas. Actualmente sigo perfeccionando mis
-        habilidades en <strong>arquitecturas backend modernas</strong>,
-        <strong>Docker</strong> y despliegue en la nube, con el objetivo de
-        convertirme en un <strong>profesional integral</strong> capaz de llevar
-        un proyecto desde la idea hasta la puesta en producción. Cuando no estoy
-        programando, disfruto explorar nuevas tecnologías, aprender de la
-        comunidad y compartir conocimientos, porque estoy convencido de que la
-        mejor forma de crecer es
-        <strong>aprender haciendo y ayudando a otros en su camino</strong>.
-      </p>
-
-      <!-- Stats como chips -->
-      <div class="flex flex-wrap gap-3 mb-8">
-        @for (s of stats; track $index) {
-        <div
-          class="px-4 py-2 rounded-xl bg-slate-800/70 ring-1 ring-slate-700 text-slate-200"
+      <div class="grid gap-4">
+        <article
+          class="rounded-2xl bg-slate-800/60 ring-1 ring-slate-700 p-5 transition hover:ring-slate-600"
         >
-          <span class="text-xl font-bold mr-1">{{ s.value }}</span>
-          <span class="text-sm opacity-80">{{ s.label }}</span>
-        </div>
+          <div class="flex items-start gap-4">
+            <div
+              class="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 ring-1 ring-blue-500/20"
+              aria-hidden="true"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.12a7.5 7.5 0 0 1 15 0A17.93 17.93 0 0 1 12 21.75a17.93 17.93 0 0 1-7.5-1.63Z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-100 mb-2">¿Quién soy?</h3>
+              <p class="text-[var(--muted)] leading-relaxed text-sm md:text-base">
+                Soy desarrollador Backend especializado en <strong>Java y Spring Boot</strong>,
+                con formación en Ingeniería Informática y experiencia construyendo aplicaciones
+                web completas. Creo software limpio, mantenible y orientado a resolver problemas reales.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="rounded-2xl bg-slate-800/60 ring-1 ring-slate-700 p-5 transition hover:ring-slate-600"
+        >
+          <div class="flex items-start gap-4">
+            <div
+              class="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 ring-1 ring-blue-500/20"
+              aria-hidden="true"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m8.25 9.75-3 3 3 3m7.5-6 3 3-3 3m-3.75-9-3 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-100 mb-2">¿Qué construyo?</h3>
+              <p class="text-[var(--muted)] leading-relaxed text-sm md:text-base">
+                Desarrollo APIs REST con Spring Boot, Spring Security, JWT, PostgreSQL y MySQL,
+                además de interfaces con Angular, Vue 3 y Tailwind CSS. En <strong>SmartInventory</strong>
+                integré autenticación, roles, dashboard operativo, Docker Compose, arquitectura por capas
+                y una API documentada.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="rounded-2xl bg-slate-800/60 ring-1 ring-slate-700 p-5 transition hover:ring-slate-600"
+        >
+          <div class="flex items-start gap-4">
+            <div
+              class="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 ring-1 ring-blue-500/20"
+              aria-hidden="true"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m9 12.75 2.25 2.25L15 9.75m6 2.25a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-100 mb-2">¿Cómo trabajo?</h3>
+              <p class="text-[var(--muted)] leading-relaxed text-sm md:text-base">
+                Voy más allá de un simple CRUD: busco una arquitectura sólida, interfaces cuidadas
+                y una experiencia de usuario profesional, con atención a la calidad del código,
+                la documentación y las buenas prácticas de desarrollo.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-6 mb-7" aria-label="Perfil profesional">
+        @for (stat of stats; track stat) {
+          <div
+            class="px-4 py-2 rounded-xl bg-slate-800/70 ring-1 ring-slate-700 text-sm font-medium text-slate-200"
+          >
+            {{ stat }}
+          </div>
         }
       </div>
 
-      <!-- CTAs -->
       <div class="flex flex-wrap gap-3">
         <a
           href="assets/cv/yariel-cv.pdf"
@@ -73,18 +110,15 @@
       </div>
     </div>
 
-    <!-- Columna derecha: foto con glow (usa tu imagen real) -->
-    <div class="hidden sm:flex flex justify-center md:justify-end">
+    <div class="hidden sm:flex justify-center md:justify-end">
       <div class="relative">
-        <!-- Glow sutil detrás de la foto -->
         <div
           class="absolute -inset-8 md:-inset-10 rounded-full bg-gradient-to-tr from-blue-600/30 via-purple-600/25 to-fuchsia-500/25 blur-3xl"
         ></div>
 
-        <!-- Foto personal -->
         <img
           src="assets/profile.jpg"
-          alt="Foto de perfil"
+          alt="Yariel Rodríguez, desarrollador Backend"
           class="relative z-10 h-56 w-56 md:h-64 md:w-64 rounded-full object-cover ring-4 ring-slate-700 shadow-2xl"
         />
       </div>
