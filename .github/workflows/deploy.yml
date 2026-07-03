@@ -1,7 +1,8 @@
 name: Deploy GitHub Pages
 
 on:
-  workflow_call:
+  push:
+    branches: [master]
 
 permissions:
   contents: write
@@ -12,24 +13,31 @@ concurrency:
 
 jobs:
   deploy:
-    name: Publish gh-pages
+    name: Build and publish gh-pages
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: https://yrobainah.github.io/yariel-portfolio/
 
     steps:
-      - name: Download deployment artifact
-        uses: actions/download-artifact@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          name: github-pages
-          path: dist
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build -- --base-href /yariel-portfolio/
 
       - name: Publish to gh-pages
-        uses: peaceiris/actions-gh-pages@1ef5a1b1df4c63fe21a2242edbee6cac921ece01 # v4.1.0
+        uses: peaceiris/actions-gh-pages@1ef5a1b1df4c63fe21a2242edbee6cac921ece01
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist/yariel-portfolio/browser
           publish_branch: gh-pages
           force_orphan: true
+          
