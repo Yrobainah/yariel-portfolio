@@ -16,21 +16,21 @@ export class Projects {
       title: 'SmartInventory',
       description:
         'Sistema profesional de gestión de inventario desarrollado con Spring Boot y Angular. Incluye autenticación JWT, dashboard analítico, control de stock, arquitectura multicapa y despliegue con Docker.',
-      image: '/assets/dashboard-desktop.png',
+      image: 'assets/dashboard-desktop.png',
       url: 'https://github.com/Yrobainah/SmartInventory',
     },
     {
       title: 'Portfolio Angular',
       description:
         'Aplicación de portafolio personal desarrollada con Angular y Tailwind CSS.',
-      image: '/assets/Home_Page_Portfolio.png',
+      image: 'assets/Home_Page_Portfolio.png',
       url: 'https://github.com/Yrobainah/yariel-portfolio',
     },
     {
       title: 'TradeSphere',
       description:
         'Aplicación fullstack con Java + Spring Boot y Angular para gestión de productos.',
-      image: '/assets/projects/tradesphere.png',
+      image: 'assets/projects/tradesphere.png',
       url: 'https://github.com/Yariel/tradesphere',
     },
   ];
