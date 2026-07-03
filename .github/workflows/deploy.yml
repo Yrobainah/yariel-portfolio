@@ -15,9 +15,7 @@ jobs:
     name: Publish gh-pages
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: https://yrobainah.github.io/yariel-portfolio/
+    
 
     steps:
       - name: Download deployment artifact
