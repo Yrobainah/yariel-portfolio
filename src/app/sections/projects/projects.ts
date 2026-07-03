@@ -16,7 +16,7 @@ export class Projects {
       title: 'SmartInventory',
       description:
         'Sistema profesional de gestión de inventario desarrollado con Spring Boot y Angular. Incluye autenticación JWT, dashboard analítico, control de stock, arquitectura multicapa y despliegue con Docker.',
-      image: '/assets/dashboard-desktop.png',
+      image: 'assets/dashboard-desktop.png',
       url: 'https://github.com/Yrobainah/SmartInventory',
     },
     {
