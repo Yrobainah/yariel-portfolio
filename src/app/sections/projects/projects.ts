@@ -4,13 +4,21 @@ import { ThemeService } from '../../core/services/theme/theme';
 
 @Component({
   selector: 'app-projects',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.html',
-  styleUrl: './projects.scss',
+  styleUrls: ['./projects.scss'],
 })
 export class Projects {
   constructor(public themeService: ThemeService) {}
   projects: any[] = [
+    {
+      title: 'SmartInventory',
+      description:
+        'Sistema profesional de gestión de inventario desarrollado con Spring Boot y Angular. Incluye autenticación JWT, dashboard analítico, control de stock, arquitectura multicapa y despliegue con Docker.',
+      image: '/assets/dashboard-desktop.png',
+      url: 'https://github.com/Yrobainah/SmartInventory',
+    },
     {
       title: 'Portfolio Angular',
       description:
@@ -24,13 +32,6 @@ export class Projects {
         'Aplicación fullstack con Java + Spring Boot y Angular para gestión de productos.',
       image: 'assets/projects/tradesphere.png',
       url: 'https://github.com/Yariel/tradesphere',
-    },
-    {
-      title: 'Task Manager Vue',
-      description:
-        'Gestor de tareas con Vue 3, Tailwind y almacenamiento local.',
-      image: 'assets/projects/vue-taskmanager.png',
-      url: 'https://github.com/Yariel/vue-taskmanager',
     },
   ];
 

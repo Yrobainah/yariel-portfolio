@@ -22,8 +22,9 @@
         @for (project of projects; track $index) {
         <div class="w-full flex-shrink-0 p-6 bg-slate-800 text-left">
           <img
-            src="project.image"
-            alt="project.title"
+            [src]="project.image"
+            alt="{{project.title}}"
+            [title]="project.title"
             class="w-full h-48 object-cover rounded-md mb-4"
           />
           <h3 class="text-xl font-semibold text-white mb-2">
