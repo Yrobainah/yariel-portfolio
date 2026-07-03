@@ -23,14 +23,14 @@ export class Projects {
       title: 'Portfolio Angular',
       description:
         'Aplicación de portafolio personal desarrollada con Angular y Tailwind CSS.',
-      image: '/assets/projects/angular-portfolio.png',
-      url: 'https://github.com/Yariel/portfolio-angular',
+      image: '/assets/Home_Page_Portfolio.png',
+      url: 'https://github.com/Yrobainah/yariel-portfolio',
     },
     {
       title: 'TradeSphere',
       description:
         'Aplicación fullstack con Java + Spring Boot y Angular para gestión de productos.',
-      image: 'assets/projects/tradesphere.png',
+      image: '/assets/projects/tradesphere.png',
       url: 'https://github.com/Yariel/tradesphere',
     },
   ];
