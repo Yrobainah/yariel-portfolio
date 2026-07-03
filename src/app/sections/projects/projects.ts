@@ -23,7 +23,7 @@ export class Projects {
       title: 'Portfolio Angular',
       description:
         'Aplicación de portafolio personal desarrollada con Angular y Tailwind CSS.',
-      image: '/assets/projects/angular-portfolio.png',
+      image: '/assets/Home_Page_Portfolio.png',
       url: 'https://github.com/Yrobainah/yariel-portfolio',
     },
     {
