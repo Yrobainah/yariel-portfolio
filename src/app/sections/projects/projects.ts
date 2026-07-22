@@ -27,11 +27,11 @@ export class Projects {
       url: 'https://github.com/Yrobainah/yariel-portfolio',
     },
     {
-      title: 'TradeSphere',
+      title: 'Room Pilot',
       description:
-        'Aplicación fullstack con Java + Spring Boot y Angular para gestión de productos.',
-      image: 'assets/projects/tradesphere.png',
-      url: 'https://github.com/Yariel/tradesphere',
+        'API REST para la gestión de hoteles, habitaciones, reservas y clientes.',
+      image: 'assets/projects/hotel_icon.svg',
+      url: 'https://github.com/Yariel/room-pilot',
     },
   ];
 
