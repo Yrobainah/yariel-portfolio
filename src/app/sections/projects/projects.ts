@@ -30,8 +30,8 @@ export class Projects {
       title: 'Room Pilot',
       description:
         'API REST para la gestión de hoteles, habitaciones, reservas y clientes.',
-      image: 'assets/projects/hotel_icon.svg',
-      url: 'https://github.com/Yariel/room-pilot',
+      image: 'assets/hotel_icon.png',
+      url: 'https://github.com/Yariel/Room-Pilot',
     },
   ];
 
